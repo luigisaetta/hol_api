@@ -1,0 +1,61 @@
+# Configuration file
+
+[general]
+verbose = false
+# for the api keep to False!
+do_streaming = false
+
+# for Cohere on OCI
+region = "eu-frankfurt-1"
+
+[oci]
+# set for your security configuration here !!!
+profile = "DEFAULT"
+compartment_ocid = "ocid1.compartment.oc1..aaaaaaaa7ggqkd4ptkeb7ugk6ipsl3gqjofhkr6yacluwj4fitf2ufrdm65q"
+auth = "API_KEY"
+
+# EU
+endpoint = "https://inference.generativeai.eu-frankfurt-1.oci.oraclecloud.com"
+
+# model_id for llm
+#  this one is fine in FRA
+# model_id = "cohere.command-r-16k"
+model_id = "cohere.command-r-plus"
+
+# the preamble used (for Cohere models), see preamble_library
+preamble_id = "preamble0"
+
+[embeddings]
+embed_endpoint = "https://inference.generativeai.eu-frankfurt-1.oci.oraclecloud.com"
+model_id = "cohere.embed-multilingual-v3.0"
+
+[retriever]
+# max number of docs returned from similarity query
+k = 10
+
+[llm]
+# these are general params for llm, not brand dependents
+# changed 09/07 (was 1024)
+max_tokens = 2048
+temperature = 0.0
+top_k = 1
+# changed 09/07
+top_p = 1
+
+# to handle conversation history
+# if more than MAX_NUM_MSGS remove old msgs
+# consider that msgs are added in pairs (user, chatbot)
+max_num_msgs = 8
+
+[splitting]
+# in chars
+max_chunk_size = 1500
+chunk_overlap = 100
+
+[summarize]
+# in chars
+max_input_size=80000
+
+[fastapi]
+api_port = 8888
+api_host = "0.0.0.0"
