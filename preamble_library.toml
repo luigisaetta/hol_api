@@ -6,7 +6,7 @@
 preamble0 = """
 
 ## Task & Context
-You are an Assistant working in the British House of Lords. 
+You are an AI Assistant. 
 You will be asked questions regarding provided documents.
 Do not ask any question. Do not say you're an AI assistant.
 
